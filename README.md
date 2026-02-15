@@ -5,6 +5,10 @@ Download PDFs from the U.S. Department of Justice Epstein document repository:
 
 The site requires age verification and uses cookies. This tool uses **Brave** (or Chrome) with Selenium to pass the gate once, then uses a Python `requests` session with those cookies for fast bulk downloads.
 
+Example of the kind of document imagery in the repository (contact sheet with redactions):
+
+![Sample document from the repository](assets/sample-document.png)
+
 ---
 
 ## Requirements
@@ -53,7 +57,7 @@ If you see `SSL: CERTIFICATE_VERIFY_FAILED` when the script runs, install certif
 pip install certifi
 ```
 
-On some Mac Python installs you may need to run the “Install Certificates” command from your Python folder in Applications.
+On some Mac Python installs you may need to run the "Install Certificates" command from your Python folder in Applications.
 
 ---
 
@@ -65,11 +69,11 @@ From the `epstein` directory (with `venv` activated):
 python download_epstein_files.py
 ```
 
-You’ll see a menu:
+You'll see a menu:
 
 | Mode | What it does |
 |------|----------------|
-| **1** | **Download ALL** — Searches for “No images produced”, paginates through all results (you choose max pages), and downloads every file as PDF. |
+| **1** | **Download ALL** — Searches for "No images produced", paginates through all results (you choose max pages), and downloads every file as PDF. |
 | **2** | **Journalist (auto)** — Runs many curated keyword searches (names, violence-related terms, evidence/locations). Saves the first **N** files per keyword (default 10). Builds a report and asks whether to download. |
 | **3** | **File list** — No browser. Reads `file_ids.txt` and downloads only those IDs as PDFs. Use after running mode 1 or 2 to re-download without searching again. |
 | **4** | **Custom search** — You type a search query and choose how many files to download and how many pages to search. |
@@ -89,7 +93,7 @@ You’ll see a menu:
 
 ---
 
-## Options you’ll be asked
+## Options you'll be asked
 
 - **Max pages** — How many result pages to scrape (mode 1 and 4).
 - **Files per keyword** — For mode 2, how many files to keep per search term (e.g. 10).
@@ -113,6 +117,6 @@ See `EXTRACT_COOKIES.md` if you want to use cookies in another tool.
 
 ---
 
-LICENSE
+## License
 
-MIT LICENSE
+MIT — see [LICENSE](LICENSE).
