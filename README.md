@@ -113,55 +113,6 @@ See `EXTRACT_COOKIES.md` if you want to use cookies in another tool.
 
 ---
 
-## Publishing this as its own repo
+LICENSE
 
-This folder can live in two places:
-
-1. **Inside smol_skripts** — Use it as `smol_skripts/epstein/` and run it from there.
-2. **As a separate GitHub (or other) repo** — So others can clone only the Epstein tool.
-
-### To create a new repo with only the Epstein downloader
-
-1. **Create a new empty repo** on GitHub (or GitLab, etc.). Do not add a README or .gitignore there.
-
-2. **Copy the epstein folder** to a new directory (so you don’t mix smol_skripts history with the new repo):
-
-   ```bash
-   cp -R /path/to/smol_skripts/epstein /tmp/epstein-standalone
-   cd /tmp/epstein-standalone
-   ```
-
-3. **Remove things you don’t want in the public repo** (venv, downloads, cookies, cache):
-
-   ```bash
-   rm -rf venv downloads .pytest_cache .cursor
-   rm -f cookies_browser.json cookies.json cookies.txt file_ids.txt
-   ```
-
-   The `epstein` folder has a **`.gitignore`** that already ignores these. So when you init git *inside* the copied folder, they won’t be added.
-
-4. **Initialize git and push**:
-
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: Epstein files downloader"
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_EPSTEIN_REPO.git
-   git branch -M main
-   git push -u origin main
-   ```
-
-5. **Keep using the original in smol_skripts** — Your normal workflow stays in `smol_skripts/epstein/`. The standalone repo is just a clean copy for sharing. When you want to update the public repo, copy the script (and README, requirements.txt, etc.) again and commit/push from the standalone directory.
-
----
-
-## Privacy and safety
-
-- **Cookies** — `cookies_browser.json` holds session cookies. Don’t commit it or share it; it’s in `.gitignore` for the standalone repo.
-- **Downloads** — The DOJ site hosts sensitive material. Use and store downloaded files according to your own policies and the site’s terms of use.
-
----
-
-## License
-
-Use and modify as you like. No warranty.
+MIT LICENSE
